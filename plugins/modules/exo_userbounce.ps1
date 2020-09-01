@@ -15,7 +15,6 @@ $spec = @{
     rule_name = @{ type = "str"; required = $true}
     user_email = @{ type = "str"; required = $true}
     mode = @{ type = "str"; choices = "append", "override"; default = "append" }
-    state = @{ type = "str"; choices = "absent", "present"; default = "present" }
     condition = @{ type = "str"; choices = "sentTo", "from"; default = "sentTo" }
     exo_username = @{ type = "str"; required = $true }
     exo_password = @{type = "str"; required = $true; no_log = $true}
@@ -27,7 +26,6 @@ $module = [Ansible.Basic.AnsibleModule]::Create($args, $spec)
 $ruleName = $module.Params.rule_name
 $userEmail = $module.Params.user_email
 $mode = $module.Params.mode
-$state = $module.Params.state
 $condition = $module.Params.condition
 $exoUsername = $module.Params.exo_username
 $exoPassword = $module.Params.exo_password
